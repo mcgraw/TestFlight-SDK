@@ -1,8 +1,57 @@
+## 1.3
+
+### 1.3.0-beta.2
+
+- Pause all network traffic if server is not reachable
+
+Bugs Fixed
+
+- CoreTelephony crash work around: this is a workaround of a iOS bug that causes deallocated instances of `CTTelephonyNetworkInfo` to receive notifications which causes crashes. Core Telephony is used to retrieve the device's mobile carrier.
+- Fixed addrinfo memory leak
+
+### 1.3.0-beta.1
+
+Improvements
+
+- ARC
+- All public TestFlight methods may be called from any thread or dispatch_queue
+- All public TestFlight methods (except for TFLog) are asynchronous, so there is never a wait on them
+- TestFlight never uses more than 1 network connection at a time
+- All network traffic is grouped together, sent at once, and transferred in MessagePack. This results in using less bandwidth and less network calls.
+
+Removed
+
+- Removed Questions
+- Removed Feedback View (along with backtrace option)
+
+## 1.2.4 - February 19, 2013
+
+- Fixed bug that caused crash reports to sometimes not send immediately (they would be resent later)
+
+## 1.2.3 - January 8, 2013
+
+- Fixed typos in readme
+- Fixed bug where logs not sent on crash
+- Fixed bug where empty crash files were created (but not sent)
+- Cache cache path
+- Use consts for `setOptions:`
+- Updated `setDeviceIdentifier:` comments to make them clearer
+- Remove potentially conflicting function name `UIColorFromRGB`
+- Fixed crash on bad in app update data
+
+## 1.2.2 - December 26, 2012
+
+- Fix typo in app token error message
+
+## 1.2.1 - December 26, 2012
+
+- The max number of concurrent network connections has been reduced from 4 to 2.
+
 ##1.2 - November 12, 2012
 
 * Removed Team Token support. As of version 1.2 takeOff must be called with the Application Token, https://testflightapp.com/dashboard/applications/, choose your application, select SDK, get the Token for this Application.
 
-##1.3 BETA 3 - October 11, 2012
+##1.2 BETA 3 - October 11, 2012
 
 * Added application token support. Application Tokens are currently optional if you do not have one you do not need one
 
